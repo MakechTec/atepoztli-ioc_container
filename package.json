@@ -1,6 +1,6 @@
 {
-  "name": "@makechte/ioc_container",
-  "version": "1.0.1",
+  "name": "@makechtec/ioc_container",
+  "version": "1.0.2",
   "description": "",
   "main": "index.ts",
   "scripts": {
