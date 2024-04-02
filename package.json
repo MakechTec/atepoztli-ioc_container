@@ -1,5 +1,5 @@
 {
-  "name": "@makechtec/ioc_container",
+  "name": "@makechtec/ioc-container",
   "version": "1.0.2",
   "description": "",
   "main": "index.ts",
