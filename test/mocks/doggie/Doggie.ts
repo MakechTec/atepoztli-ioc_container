@@ -1,13 +1,13 @@
-
-export class Doggie{
+export class Doggie {
 
     public constructor(private name: string = "") {
     }
-    public run(){
+
+    public run() {
         console.log(`I run as doggie named: ${this.name}`);
     }
 
-    public getName(){
+    public getName() {
         return this.name;
     }
 }

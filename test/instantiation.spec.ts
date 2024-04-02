@@ -154,7 +154,7 @@ test('call to prototype instance with some parameters', async () => {
 
     const MOCKS: ProviderConfiguration[] = [
         {
-            serviceProvider: (container, {name}:{name:string}) => new Doggie(name),
+            serviceProvider: (container, {name}: { name: string }) => new Doggie(name),
             providerFeatures: {
                 scope: "prototype",
                 identifier: "doggie",

@@ -13,5 +13,5 @@ export type ProviderFeatures = {
 
 export type SingletonRegistry = {
     singleton: any;
-    providerFeatures :ProviderFeatures;
+    providerFeatures: ProviderFeatures;
 }

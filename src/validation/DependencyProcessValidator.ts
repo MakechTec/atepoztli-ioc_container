@@ -17,7 +17,7 @@ export class DependencyProcessValidator {
 
             visiting.add(identifier);
 
-            const provider = providers.find( provider => provider.identifier === identifier);
+            const provider = providers.find(provider => provider.identifier === identifier);
 
             if (provider === null || provider === undefined) {
                 throw new Error(`not found provider with identifier: ${identifier}`);
@@ -36,33 +36,33 @@ export class DependencyProcessValidator {
         };
 
 
-        providers.map( provider => provider.identifier )
-                .forEach(identifier => {
-                    if (hasCycle(identifier)) {
-                        throw new Error(`Circular dependency detected for provider with identifier ${identifier}`);
-                    }
-                });
+        providers.map(provider => provider.identifier)
+            .forEach(identifier => {
+                if (hasCycle(identifier)) {
+                    throw new Error(`Circular dependency detected for provider with identifier ${identifier}`);
+                }
+            });
     }
 
-    public validateAllSatisfiedDependencies(providers: ProviderFeatures[]){
+    public validateAllSatisfiedDependencies(providers: ProviderFeatures[]) {
         const allIdentifiers: string[] = providers.map(provider => provider.identifier);
 
         const dependenciesSet: Set<string> = new Set<string>();
 
-        providers.flatMap( provider => provider.dependencies )
-            .forEach( dependency => dependenciesSet.add(dependency) );
+        providers.flatMap(provider => provider.dependencies)
+            .forEach(dependency => dependenciesSet.add(dependency));
 
-        dependenciesSet.forEach( dependency => {
-            if(!allIdentifiers.includes(dependency)){
-               throw new Error(`Unsatisfied dependency, not found provider for dependency: ${dependency}`);
-           }
-        } );
+        dependenciesSet.forEach(dependency => {
+            if (!allIdentifiers.includes(dependency)) {
+                throw new Error(`Unsatisfied dependency, not found provider for dependency: ${dependency}`);
+            }
+        });
 
     }
 
 
-    public validateUniqueIdentifier(identifier: string, providers: ProviderFeatures[]){
-        if(providers.map(provider => provider.identifier).includes(identifier)){
+    public validateUniqueIdentifier(identifier: string, providers: ProviderFeatures[]) {
+        if (providers.map(provider => provider.identifier).includes(identifier)) {
             throw new Error(`Already defined identifier ${identifier} must be unique for each provider`);
         }
     }
